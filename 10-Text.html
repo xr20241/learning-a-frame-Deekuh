@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Component</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- <a-text
+            value="Hello, World!"
+            color="red"
+            position="0 1.5 -3"
+        ></a-text> -->
+        <a-entity
+            text="
+                value: This is a text build with a-entity;
+                color: blue;
+                wrapCount: 10;
+                align: center;
+                negate: false;
+                font: ./fonts/Minecraft/Minecraft-msdf.json;
+            "
+            position="0 1.5 -3"
+            geometry="
+                primitive: plane;
+                width: auto;
+                height: auto;
+            "
+            material="
+                color: #cccccc;
+            "
+        ></a-entity>
+    </a-scene>
+</body>
+</html>
