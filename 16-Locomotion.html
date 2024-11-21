@@ -11,12 +11,18 @@
     <script>
         AFRAME.registerComponent("navlog", {
             init: function() {
+                this.el.addEventListener("navigation-start", function() {
+                    console.log("%cSTART", "font-size: 2em; color:green");
+                });
+                this.el.addEventListener("navigation-end", function() {
+                    console.log("%cEND", "font-size: 2em; color:red");
+                });
             }
         });
     </script>
     <a-scene>
         <a-grid></a-grid>
-        <a-entity movement-controls="controls: checkpoint" checkpoint-controls="mode: teleport">
+        <a-entity navlog movement-controls="controls: checkpoint" checkpoint-controls="mode: animate; animateSpeed: 5">
             <a-camera><a-cursor></a-cursor>
             </a-camera>
         </a-entity>
