@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locomotion (Camera Motion)</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.2/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <script>
+        AFRAME.registerComponent("navlog", {
+            init: function() {
+            }
+        });
+    </script>
+    <a-scene>
+        <a-grid></a-grid>
+        <a-entity movement-controls="controls: checkpoint" checkpoint-controls="mode: teleport">
+            <a-camera><a-cursor></a-cursor>
+            </a-camera>
+        </a-entity>
+        <a-circle
+            checkpoint
+            color="#500"
+            position="0 0.1 -3"
+            rotation="-90 0 0"
+        ></a-circle>
+        <a-circle
+            checkpoint="offset: 0 1.5 0"
+            color="#550"
+            position="-5 0.1 -3"
+            rotation="-90 0 0"
+        ></a-circle>
+        <a-circle
+            checkpoint
+            color="#050"
+            position="5 0.1 -3"
+            rotation="-90 0 0"
+        ></a-circle>
+    </a-scene>
+</body>
+</html>
