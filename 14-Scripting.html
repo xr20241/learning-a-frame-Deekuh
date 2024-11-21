@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scripting</title>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.2/dist/aframe-extras.min.js"></script>
 </head>
 <body>
@@ -14,12 +14,19 @@
                 message1: {type: 'string', default: 'Foo'},
                 message2: {type: 'string', default: 'Holla'},
             },
+            update: function(oldData) {
+                console.log("UPDATED");
+            },
+            tick: function(/*time, timeDelta*/) {
+                this.el.getObject3D('mesh').rotation.y += 0.01;
+            },
             init: function() {
                 console.log("%cHello" + this.data.message1 + ", " + this.data.message2, "font-size: 2em")
                 // console.log(this.el)
                 // let box = document.querySelector('#box1');
                 // console.log(box);
-                let data = this.data
+                let data = this.data;
+                this.el.getObject3D('mesh').material.color = new THREE.Color('yellow');
                 this.el.addEventListener('click', function(ev) {
                     // console.log('%cClicked', "font-size: 2em; color: red");
                     // ev.srcElement.setAttribute('foo', 'message1: Alternative');
