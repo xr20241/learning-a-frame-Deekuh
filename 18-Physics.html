@@ -19,8 +19,8 @@
                     newBox.setAttribute("scale", "0.2 0.2 0.2");
                     newBox.setAttribute("color", "red");
                     let temp = Math.random() * 2 - 1;
-                    newBox.setAttribute("position", `${temp} 2 -1`);
-                    newBox.setAttribute("dynamic-body", "shape:sphere");
+                    newBox.setAttribute("position", `${temp} 2 -3`);
+                    newBox.setAttribute("dynamic-body", "shape:box");
                     newBox.setAttribute("spring", "target:#anchor;stiffness:25");
                     scene.appendChild(newBox);
                 });
@@ -28,25 +28,32 @@
         });
     </script>
     <a-scene id="scene" physics="debug:true">
-        <a-camera><a-cursor></a-cursor></a-camera>
+        <a-camera position="0 1.5 2">
+            <a-cursor></a-cursor>
+        </a-camera>
+        <!-- <a-box
+            color="red"
+            id="anchor"
+            scale="0.5 0.5 0.5"
+            static-body
+            position="0 2.5 -3"
+            wireframe="true"
+        ></a-box> -->
+        <a-box
+            color="green"
+            id="moving"
+            constraint="target:#anchor;type:coneTwist;pivot:0 -0.5 0"
+            scale="4 0.2 1"
+            dynamic-body
+            position="0 3.5 -3"
+        ></a-box>
+        <a-box boxgenerator color="yellow" scale="0.2 0.2 0.2" position="0 1.5 -3"></a-box>
         <a-plane
             static-body
             color="#222"
             rotation="-90 0 0"
             scale="15 15 15"
         ></a-plane>
-        <a-box
-            boxgenerator
-            color="red"
-            position="0 1.5 -1"
-            scale="0.2 0.2 0.2"
-        ></a-box>
-        <a-box
-            dynamic-body
-            color="red"
-            position="0.2 1.5 -1"
-            scale="0.2 0.2 0.2"
-        ></a-box>
     </a-scene>
 </body>
 </html>
